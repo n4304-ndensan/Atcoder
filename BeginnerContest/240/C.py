@@ -1,30 +1,27 @@
 N, X = map(int, input().split())
-n = [list(map(int, input().split())) for _ in range(N)]
+A = []
+B = []
+for _ in range(N):
+    a, b = map(int, input().split())
+    A.append(a)
+    B.append(b)
 
-print(n)
+dp = [[False] * (X+1) for _ in range(N+1)]
 
-a = 0
-b = 0
-ans = []
-'''
-for x in n[0]:
-    for y in n[1]:
-        a += x + y
-'''
-index = 0
-while index <= N-1:
-    for i in range(2):
-        for x in range(2):
-            a += n[i][x] + n[]
-            ans.append(a)
-    index += 1
+dp[0][0] = True
 
-print(ans)
+for i in range(N):
+    a = A[i]
+    b = B[i]
+    for j in range(X + 1):
+        if j + a <= X:
+            dp[i+1][j+a] |= dp[i][j]
+        if j + b <= X:
+            dp[i+1][j+b] |= dp[i][j]
 
-for i in range(1 << N):
-    for j in range(N):
-        if i >> j & 1:
-            ans.append()
-
+if dp[N][X]:
+    print('Yes')
+else:
+    print('No')
 
 
