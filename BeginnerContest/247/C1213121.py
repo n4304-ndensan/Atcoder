@@ -12,3 +12,6 @@ def makeS(n):
 
 ans = makeS(N)
 print(ans)
+
+
+
