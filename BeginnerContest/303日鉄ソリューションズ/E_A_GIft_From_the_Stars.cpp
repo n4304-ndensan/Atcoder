@@ -81,7 +81,7 @@ int main() {
             cout << deg[i] << endl;
         }
     }
-    
+
 
     for (int i = 0; i < n; i++ ) {
         for (int j = 0; j < temp.size(); j++) {
@@ -103,6 +103,5 @@ int main() {
     for (int i = 0; i < ans.size(); i++) {
         cout << ans[i] << ' ';
     }
-
 
 }
