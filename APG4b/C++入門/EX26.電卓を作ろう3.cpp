@@ -111,7 +111,6 @@ int main() {
                     }
                 }
                 else{
-                    cout << orders[i][j] << endl;
                     if(orders[i][j-2]=='+'){
                         num += orders[i][j] - '0';
                     }
@@ -121,12 +120,11 @@ int main() {
                     else{
                         num -= orders[i][j] - '0';
                     }
-                    cout << num << endl;
                 }
             }
 
             if(order_num == 1){
-                if(j <= 3 || j == 5 || j == 6 || j == 7){
+                if(j <= 3 || j == 5 || j == 6 || j == 7 || orders[i][j]==' ' || orders[i][j]==','){
                     j++;
                     continue;
                 }
@@ -144,7 +142,7 @@ int main() {
                         once = false;
                     }
                     if(plus){
-                        vec =Addition(vec, tempvec, vec.size());
+                        vec = Addition(vec, tempvec, vec.size());
                     }
                     else{
                         vec = ddition(vec, tempvec, vec.size());
@@ -158,19 +156,31 @@ int main() {
                     plus = false;
                 }
                 else if(isdigit(orders[i][j])==0){
-                    if(once){
-                        vec = vmp[orders[i][j]];
-                        once = false;
+                    if(temp_flug){
+                        cout << "happy" << endl;
+                        cout << mp[orders[i][j]] << endl;
+                        tempvec.pb(mp.at(orders[i][j]));
                     }
-                    if(plus){
-                        vec = Addition(vec, vmp[orders[i][j]], vec.size());
-                    }
-                    else{
-                        vec = ddition(vec, vmp[orders[i][j]], vec.size());
+                    else {
+                        if(once){
+                            vec = vmp[orders[i][j]];
+                            once = false;
+                        }
+                        if(plus){
+                            vec = Addition(vec, vmp[orders[i][j]], vec.size());
+                        }
+                        else{
+                            vec = ddition(vec, vmp[orders[i][j]], vec.size());
+                        }
                     }
                 }
                 else{
-                        tempvec.pb(orders[i][j]);
+                    tempvec.pb(orders[i][j] - '0');
+                    for (auto x : tempvec){
+                        cout << x << ' ';
+                    }
+                    cout << endl;
+                    
                 }
             }
 
@@ -257,7 +267,9 @@ int main() {
             j++;
         }
         if(mp_flug){
+            cout << key_name << ' ' << num << endl;
             mp.insert(make_pair(key_name, num));
+            cout << mp[key_name] << ' ' << endl;
         }
         else if(vmp_flug){
             vmp.insert(make_pair(key_name, vec));
@@ -273,5 +285,9 @@ int main() {
             cout << "]" << endl;
         }
     }
+
+    cout << mp.at('x');
+
+
     
 }
