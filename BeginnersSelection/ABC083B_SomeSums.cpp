@@ -25,18 +25,24 @@ using vvst = vector<vst>;
 #define uniq(a) sort(all(a));a.erase(unique(all(a)),a.end())
 
 int main() {
-    int a, b, c, x;
-    int count = 0;
-    cin >> a >> b >> c >> x;
-    rep(i, 0, a+1){
-        rep(j, 0, b+1){
-            rep(k, 0, c+1){
-                if((500*i+100*j+50*k)==x){
-                    count++;
-                }
-            }
+    int n, a, b;
+    cin >> n >> a >> b;
+    int ans;
+    ans = 0;
+    rep(i, 0, n+1){
+        int num, temp;
+        num = 0;
+        temp = i;
+        num += temp%10;
+        temp -= temp%10;
+        while(temp != 0){
+            num += temp%10;
+            temp /= 10;
+        }
+        if(a<=num && num<=b){
+            ans+=i;
         }
     }
 
-    cout << count << endl;
+    cout << ans << endl;
 }
