@@ -25,7 +25,8 @@ using vvst = vector<vst>;
 #define uniq(a) sort(all(a));a.erase(unique(all(a)),a.end())
 
 int main() {
-    int n, index, min = 100;
+    int n, index, min = 1000000000;
+    cin >> n;
     vi age_data;
     vst name_data;
     rep(i, 0, n){
