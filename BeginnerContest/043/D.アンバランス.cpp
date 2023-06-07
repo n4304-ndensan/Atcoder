@@ -27,27 +27,27 @@ using vvst = vector<vst>;
 int main() {
     string s;
     cin >> s;
-    int x, y;
+    ll x, y;
     x = -1;
     y = -1;
     bool a = false;
+
     per(i, s.size()-1, 2){
-        per(j, s.size()-1, 0){
+        rep(j, 0, s.size()-i){
             string subs;
             subs = s.substr(j, i);
             map<char, int> mp;
-            for(auto x : subs){
-                if(mp.find(x) != mp.end()){
-                    mp[x]++;
-                    if(mp[x] > i/2){
-                        x = j+1;
-                        y = i+j;
+            for(auto xx : subs){
+                if(mp.find(xx) != mp.end()){
+                    mp[xx]++;
+                    if(mp[xx] > i/2){
+                        x = j + 1;
+                        y = j+i;
                         a = true;
-                        break;
                     }
                 }
                 else{
-                    mp[x] = 1;
+                    mp[xx] = 1;
                 }
                 if(a){
                     break;
