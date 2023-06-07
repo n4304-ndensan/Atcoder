@@ -25,6 +25,7 @@ using vvst = vector<vst>;
 #define uniq(a) sort(all(a));a.erase(unique(all(a)),a.end())
 
 int main() {
+    // commit できているかの確認用
     string N;
     int K;
     cin >> N >> K;
