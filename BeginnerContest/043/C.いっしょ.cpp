@@ -36,16 +36,13 @@ int main() {
         sum += a;
     }
 
-    int avg;
-    if(sum%n == 0){
-        avg = sum / n;
-    }
-    else{
-        avg = sum / n + 1;
-    }
-    int ans = 0;
-    rep(i, 0, n){
-        ans += pow(data[i]-avg, 2);
+    int ans=10000000;
+    rep(i, -200, 200){
+        int c = 0;
+        rep(j, 0, n){
+            c+=(i-data[j])*(i-data[j]);
+        }
+        ans = min(ans,c);
     }
 
     cout << ans << endl;
