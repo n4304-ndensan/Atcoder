@@ -32,9 +32,9 @@ int main() {
     y = -1;
     bool a = false;
 
-    per(i, s.size()-1, 2){
-        rep(j, 0, s.size()-i){
-            string subs;
+    rep(i, 2, 4){
+        rep(j, 0, s.size()){
+            string subs;;
             subs = s.substr(j, i);
             map<char, int> mp;
             for(auto xx : subs){
@@ -42,7 +42,7 @@ int main() {
                     mp[xx]++;
                     if(mp[xx] > i/2){
                         x = j + 1;
-                        y = j+i;
+                        y = j + i;
                         a = true;
                     }
                 }
@@ -60,6 +60,7 @@ int main() {
         if(a){
             break;
         }
+
     }
 
     cout << x << " " << y << endl;
