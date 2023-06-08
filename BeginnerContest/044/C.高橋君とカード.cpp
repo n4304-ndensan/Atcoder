@@ -1,3 +1,28 @@
+'''
+解説
+url : https://blog.hamayanhamayan.com/entry/2016/08/29/141910
+
+DP
+using ll = long long;
+int N, A;
+int x[50];
+ll dp[51][51][3010];
+
+int main() {
+    cin >> N >> A;
+    rep(i, 0, N) cin >> x[i];
+
+    dp[0][0][0] = 1;
+    rep(i, 0, N) rep(j, 0, N) rep(k, 0, 2500) if (dp[i][j][k]){
+        dp[i + 1][j][k] += dp[i][j][k];
+        dp[i + 1][j + 1][k + x[i]] += dp[i][j][k];
+    }
+
+    ll ans = 0;
+    rep(i , 1, N + 1) ans += dp[N][i][i*A];
+    cout << ans << endl;
+}
+'''
 #include <bits/stdc++.h>
 using namespace std;
 
