@@ -25,4 +25,23 @@ using vvst = vector<vst>;
 #define uniq(a) sort(all(a));a.erase(unique(all(a)),a.end())
 
 int main() {
+    string a, b, c;
+    cin >> a >> b >> c;
+    string* temp = &a;
+    string ans;
+    while(temp.size() != 0){
+        ans = temp[0];
+        temp = temp.erase(0, 1);
+        cout << temp << endl;
+        if("a" == ans) temp = &a;
+        else if("b" ==ans) temp = &b;
+        else temp = &c;
+        
+    }
+
+
+    cout << ans << endl;
+    if(ans == "a") cout << "A" << endl;
+    else if(ans == "b") cout << "B" << endl;
+    else cout << "C" << endl;
 }
