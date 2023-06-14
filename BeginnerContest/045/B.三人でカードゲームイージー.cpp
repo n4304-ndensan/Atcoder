@@ -29,10 +29,10 @@ int main() {
     cin >> a >> b >> c;
     string* temp = &a;
     string ans;
-    while(temp.size() != 0){
-        ans = temp[0];
-        temp = temp.erase(0, 1);
-        cout << temp << endl;
+    while(temp->size() != 0){
+        ans = (*temp)[0];
+        *temp = temp->erase(0, 1);
+        cout << *temp << endl;
         if("a" == ans) temp = &a;
         else if("b" ==ans) temp = &b;
         else temp = &c;
