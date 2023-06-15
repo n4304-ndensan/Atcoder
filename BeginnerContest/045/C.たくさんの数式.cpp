@@ -25,21 +25,21 @@ using vvst = vector<vst>;
 #define uniq(a) sort(all(a));a.erase(unique(all(a)),a.end())
 
 int main() {
-    string a, b, c;
-    cin >> a >> b >> c;
-    string* temp = &a;
-    string ans;
-    while(temp->size() != 0){
-        ans = (*temp)[0];
-        *temp = temp->erase(0, 1);
-        if("a" == ans) temp = &a;
-        else if("b" ==ans) temp = &b;
-        else temp = &c;
-        
+    string S;
+    cin >> S;
+    int N = S.size();
+    ll res = 0;
+    for(int bit = 0; bit < (1<<(N-1)); ++bit){
+        ll tmp = 0;
+        rep(i, 0, N-1){
+            tmp *= 10;
+            tmp += S[i] - '0';
+            if(bit & (1<<i)) res += tmp, tmp = 0;
+        }
+        tmp *= 10;
+        tmp += S.back() - '0';
+        res += tmp;
     }
 
-
-    if(ans == "a") cout << "A" << endl;
-    else if(ans == "b") cout << "B" << endl;
-    else cout << "C" << endl;
+    cout << res << endl;
 }
